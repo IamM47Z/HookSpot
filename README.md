@@ -1,6 +1,6 @@
 # HookSpot
 
-This is a simple AD Blocker for Spotify with low maintenance required. Currently, it only supports ARM64 Mach-O binaries.
+This is a simple Spotify CEF Patcher with low maintenance required. Currently, it only supports ARM64 Mach-O binaries.
 
 #### TODO:
 
