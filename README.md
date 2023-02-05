@@ -1,23 +1,19 @@
 # HookSpot
 
-This is a simple Spotify CEF Patcher with low maintenance required. Currently, it only supports ARM64 Mach-O binaries.
+This is a simple Spotify CEF Patcher with low maintenance required. Currently, it only supports ARM64 Mach-O binaries and only blocks ADs.
 
 #### TODO:
 
 - Clear and organize the code;
-
-- Find a better way to block the ADs or implement a way to patch it in updates.
+- Find a better way to block the ADs or implement a way to patch it in updates;
+- Implement new and usefull features.
 
 ## How to use
 
-- Download this repository.
-
-- Open Keychain Access and click on Certificate Assistant. 
-
-- Then create a certificate with Select Identity-Type as "Self Signed Root", Certificate Type as "Code Signing" and save the certificate token.
-
-- Open main.py and swap the value of the variable `cert` with the certificate token.
-
+- Download this repository;
+- Open Keychain Access and click on Certificate Assistant;
+- Then create a certificate with Select Identity-Type as "Self Signed Root", Certificate Type as "Code Signing" and save the certificate token;
+- Open main.py and swap the value of the variable `cert` with the certificate token;
 - Run the script every time Spotify is updated because the CEF binary will likely be updated every time.
 
 ## Credits
