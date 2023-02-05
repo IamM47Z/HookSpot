@@ -1,6 +1,6 @@
 # HookSpot
 
-This is a simple Spotify adblocker for macOS that automatically updates itself. Currently, it only supports ARM64 binaries.
+This is a simple AD Blocker for Spotify with low maintenance required. Currently, it only supports ARM64 Mach-O binaries.
 
 #### TODO:
 
