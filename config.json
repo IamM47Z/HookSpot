@@ -1,0 +1,17 @@
+{
+    "path":     "/Applications/Spotify.app",
+    "cef_file": "/Applications/Spotify.app/Contents/Frameworks/Chromium Embedded Framework.framework/Chromium Embedded Framework",
+
+    "cert": "m47z",
+
+    "hooks": [ 
+        { 
+            "name": "cef_urlrequest_create",
+            "symbol_name": "_cef_urlrequest_create",
+            "return_type": "void*",
+            "arguments": "cef_request_t* req, void* client, void* req_ctx",
+            "hook_fun_body": "{\n\tcef_string_userfree_utf16_t url_utf16 = req->get_url( req );\tchar url[ url_utf16->len + 1 ];\n\turl[ url_utf16->len ] = '\\0';\n\n\tfor( int i = 0; i < url_utf16->len; i++ )\n\t\turl[ i ] = *( url_utf16->str + i );\n\n\t_cef_string_userfree_utf16_free( url_utf16 );\n\n\tif ( is_blacklisted(url) )\n\t\treturn 0;\n\n\treturn _cef_urlrequest_create( req, client, req_ctx);\n}",
+            "dependency_code": "#include <string.h>\n\nstatic const char *blacklist[] = {\n\t\"https://spclient.wg.spotify.com/ads/\",\n\t\"https://spclient.wg.spotify.com/ad-logic/\",\n\t\"https://spclient.wg.spotify.com/gabo-receiver-service/\"\n};\n\nstatic const int blacklist_len = sizeof(blacklist) / sizeof(blacklist[0]);\n\nstatic inline int is_blacklisted(const char *url)\n{\n\tfor (int i = 0; i < blacklist_len; i++)\n\t\tif (strstr(url, blacklist[i]))\n\t\t\treturn 1;\n\treturn 0;\n}\n\ntypedef struct\n{\n\tunsigned short *str;\n\tsize_t len;\n\tvoid *p1;\n} cef_string_utf16_t;\n\ntypedef cef_string_utf16_t *cef_string_userfree_utf16_t;\n\ntypedef struct\n{\n\tsize_t s1;\n\tvoid *p1;\n\tvoid *p2;\n\tvoid *p3;\n\tvoid *p4;\n} cef_base_ref_counted_t;\n\ntypedef struct\n{\n\tcef_base_ref_counted_t base;\n\tvoid *p1;\n\tcef_string_userfree_utf16_t (*get_url)(void *);\n} cef_request_t;"
+        } 
+    ]
+}

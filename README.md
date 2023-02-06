@@ -12,9 +12,9 @@ This is a simple Spotify CEF Patcher with low maintenance required. Currently, i
 
 - Download this repository;
 - Open Keychain Access and click on Certificate Assistant;
-- Then create a certificate with Select Identity-Type as "Self Signed Root", Certificate Type as "Code Signing" and save the certificate token;
-- Open main.py and swap the value of the variable `cert` with the certificate token;
-- Run the script every time Spotify is updated because the CEF binary will likely be updated every time.
+- Then create a certificate with Select Identity-Type as "Self Signed Root", Certificate Type as "Code Signing";
+- On `config.json` replace the `cert` value with your certificate name;
+- Now run the script to apply the patch ( Note: you need to run the script every time Spotify is updated because the CEF binary will likely be updated every time ).
 
 ## Credits
 
