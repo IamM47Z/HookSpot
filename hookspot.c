@@ -71,6 +71,7 @@ void ( * _cef_create_url )( );
 void ( * _cef_format_url_for_security_display )( );
 void ( * _cef_get_mime_type )( );
 void ( * _cef_get_extensions_for_mime_type )( );
+void ( * _cef_string_list_clear )( );
 void ( * _cef_base64encode )( );
 void ( * _cef_base64decode )( );
 void ( * _cef_uriencode )( );
@@ -93,23 +94,22 @@ void ( * _cef_now_from_system_trace_time )( );
 void ( * _cef_register_extension )( );
 void ( * _cef_execute_java_script_with_user_gesture_for_tests )( );
 void ( * _cef_set_data_directory_for_tests )( );
-void ( * _cef_string_list_clear )( );
-void ( * _cef_string_userfree_utf16_alloc )( );
 void ( * _cef_string_utf16_clear )( );
 void ( * _cef_string_utf16_set )( );
+void ( * _cef_string_userfree_utf16_alloc )( );
 void ( * _cef_version_info )( );
 void ( * _cef_api_hash )( );
-void ( * _cef_string_list_append )( );
 void ( * _cef_string_list_size )( );
 void ( * _cef_string_list_value )( );
-void ( * _cef_string_map_append )( );
-void ( * _cef_string_map_key )( );
+void ( * _cef_string_list_append )( );
 void ( * _cef_string_map_size )( );
+void ( * _cef_string_map_key )( );
 void ( * _cef_string_map_value )( );
-void ( * _cef_string_multimap_append )( );
-void ( * _cef_string_multimap_key )( );
+void ( * _cef_string_map_append )( );
 void ( * _cef_string_multimap_size )( );
+void ( * _cef_string_multimap_key )( );
 void ( * _cef_string_multimap_value )( );
+void ( * _cef_string_multimap_append )( );
 void ( * _cef_string_utf16_cmp )( );
 void ( * _cef_binary_value_create )( );
 void ( * _cef_browser_host_create_browser )( );
@@ -247,7 +247,7 @@ void ( * _cef_time_delta )( );
 void ( * _cef_time_to_basetime )( );
 void ( * _cef_time_from_basetime )( );
 void ( * _OBJC_CLASS_$_UnderlayOpenGLHostingWindow )( );
-void ( * _ChromeAppModeStart_v6 )( );
+void ( * _ChromeAppModeStart_v7 )( );
 void ( * _OBJC_METACLASS_$_UnderlayOpenGLHostingWindow )( );
 
 void* ( * _cef_urlrequest_create )( cef_request_t* req, void* client, void* req_ctx );
@@ -283,6 +283,7 @@ static void init()
     _cef_format_url_for_security_display = dlsym( handle, "cef_format_url_for_security_display" );
     _cef_get_mime_type = dlsym( handle, "cef_get_mime_type" );
     _cef_get_extensions_for_mime_type = dlsym( handle, "cef_get_extensions_for_mime_type" );
+    _cef_string_list_clear = dlsym( handle, "cef_string_list_clear" );
     _cef_base64encode = dlsym( handle, "cef_base64encode" );
     _cef_base64decode = dlsym( handle, "cef_base64decode" );
     _cef_uriencode = dlsym( handle, "cef_uriencode" );
@@ -305,23 +306,22 @@ static void init()
     _cef_register_extension = dlsym( handle, "cef_register_extension" );
     _cef_execute_java_script_with_user_gesture_for_tests = dlsym( handle, "cef_execute_java_script_with_user_gesture_for_tests" );
     _cef_set_data_directory_for_tests = dlsym( handle, "cef_set_data_directory_for_tests" );
-    _cef_string_list_clear = dlsym( handle, "cef_string_list_clear" );
-    _cef_string_userfree_utf16_alloc = dlsym( handle, "cef_string_userfree_utf16_alloc" );
     _cef_string_utf16_clear = dlsym( handle, "cef_string_utf16_clear" );
     _cef_string_utf16_set = dlsym( handle, "cef_string_utf16_set" );
+    _cef_string_userfree_utf16_alloc = dlsym( handle, "cef_string_userfree_utf16_alloc" );
     _cef_version_info = dlsym( handle, "cef_version_info" );
     _cef_api_hash = dlsym( handle, "cef_api_hash" );
-    _cef_string_list_append = dlsym( handle, "cef_string_list_append" );
     _cef_string_list_size = dlsym( handle, "cef_string_list_size" );
     _cef_string_list_value = dlsym( handle, "cef_string_list_value" );
-    _cef_string_map_append = dlsym( handle, "cef_string_map_append" );
-    _cef_string_map_key = dlsym( handle, "cef_string_map_key" );
+    _cef_string_list_append = dlsym( handle, "cef_string_list_append" );
     _cef_string_map_size = dlsym( handle, "cef_string_map_size" );
+    _cef_string_map_key = dlsym( handle, "cef_string_map_key" );
     _cef_string_map_value = dlsym( handle, "cef_string_map_value" );
-    _cef_string_multimap_append = dlsym( handle, "cef_string_multimap_append" );
-    _cef_string_multimap_key = dlsym( handle, "cef_string_multimap_key" );
+    _cef_string_map_append = dlsym( handle, "cef_string_map_append" );
     _cef_string_multimap_size = dlsym( handle, "cef_string_multimap_size" );
+    _cef_string_multimap_key = dlsym( handle, "cef_string_multimap_key" );
     _cef_string_multimap_value = dlsym( handle, "cef_string_multimap_value" );
+    _cef_string_multimap_append = dlsym( handle, "cef_string_multimap_append" );
     _cef_string_utf16_cmp = dlsym( handle, "cef_string_utf16_cmp" );
     _cef_binary_value_create = dlsym( handle, "cef_binary_value_create" );
     _cef_browser_host_create_browser = dlsym( handle, "cef_browser_host_create_browser" );
@@ -460,7 +460,7 @@ static void init()
     _cef_time_to_basetime = dlsym( handle, "cef_time_to_basetime" );
     _cef_time_from_basetime = dlsym( handle, "cef_time_from_basetime" );
     _OBJC_CLASS_$_UnderlayOpenGLHostingWindow = dlsym( handle, "OBJC_CLASS_$_UnderlayOpenGLHostingWindow" );
-    _ChromeAppModeStart_v6 = dlsym( handle, "ChromeAppModeStart_v6" );
+    _ChromeAppModeStart_v7 = dlsym( handle, "ChromeAppModeStart_v7" );
     _OBJC_METACLASS_$_UnderlayOpenGLHostingWindow = dlsym( handle, "OBJC_METACLASS_$_UnderlayOpenGLHostingWindow" );
 }
 
@@ -512,6 +512,7 @@ CREATE_HOOKED_FUN( cef_create_url )
 CREATE_HOOKED_FUN( cef_format_url_for_security_display )
 CREATE_HOOKED_FUN( cef_get_mime_type )
 CREATE_HOOKED_FUN( cef_get_extensions_for_mime_type )
+CREATE_HOOKED_FUN( cef_string_list_clear )
 CREATE_HOOKED_FUN( cef_base64encode )
 CREATE_HOOKED_FUN( cef_base64decode )
 CREATE_HOOKED_FUN( cef_uriencode )
@@ -534,23 +535,22 @@ CREATE_HOOKED_FUN( cef_now_from_system_trace_time )
 CREATE_HOOKED_FUN( cef_register_extension )
 CREATE_HOOKED_FUN( cef_execute_java_script_with_user_gesture_for_tests )
 CREATE_HOOKED_FUN( cef_set_data_directory_for_tests )
-CREATE_HOOKED_FUN( cef_string_list_clear )
-CREATE_HOOKED_FUN( cef_string_userfree_utf16_alloc )
 CREATE_HOOKED_FUN( cef_string_utf16_clear )
 CREATE_HOOKED_FUN( cef_string_utf16_set )
+CREATE_HOOKED_FUN( cef_string_userfree_utf16_alloc )
 CREATE_HOOKED_FUN( cef_version_info )
 CREATE_HOOKED_FUN( cef_api_hash )
-CREATE_HOOKED_FUN( cef_string_list_append )
 CREATE_HOOKED_FUN( cef_string_list_size )
 CREATE_HOOKED_FUN( cef_string_list_value )
-CREATE_HOOKED_FUN( cef_string_map_append )
-CREATE_HOOKED_FUN( cef_string_map_key )
+CREATE_HOOKED_FUN( cef_string_list_append )
 CREATE_HOOKED_FUN( cef_string_map_size )
+CREATE_HOOKED_FUN( cef_string_map_key )
 CREATE_HOOKED_FUN( cef_string_map_value )
-CREATE_HOOKED_FUN( cef_string_multimap_append )
-CREATE_HOOKED_FUN( cef_string_multimap_key )
+CREATE_HOOKED_FUN( cef_string_map_append )
 CREATE_HOOKED_FUN( cef_string_multimap_size )
+CREATE_HOOKED_FUN( cef_string_multimap_key )
 CREATE_HOOKED_FUN( cef_string_multimap_value )
+CREATE_HOOKED_FUN( cef_string_multimap_append )
 CREATE_HOOKED_FUN( cef_string_utf16_cmp )
 CREATE_HOOKED_FUN( cef_binary_value_create )
 CREATE_HOOKED_FUN( cef_browser_host_create_browser )
@@ -688,7 +688,7 @@ CREATE_HOOKED_FUN( cef_time_delta )
 CREATE_HOOKED_FUN( cef_time_to_basetime )
 CREATE_HOOKED_FUN( cef_time_from_basetime )
 CREATE_HOOKED_FUN( OBJC_CLASS_$_UnderlayOpenGLHostingWindow )
-CREATE_HOOKED_FUN( ChromeAppModeStart_v6 )
+CREATE_HOOKED_FUN( ChromeAppModeStart_v7 )
 CREATE_HOOKED_FUN( OBJC_METACLASS_$_UnderlayOpenGLHostingWindow )
 
 void* cef_urlrequest_create( cef_request_t* req, void* client, void* req_ctx )
