@@ -246,9 +246,7 @@ void ( * _cef_basetime_now )( );
 void ( * _cef_time_delta )( );
 void ( * _cef_time_to_basetime )( );
 void ( * _cef_time_from_basetime )( );
-void ( * _OBJC_CLASS_$_UnderlayOpenGLHostingWindow )( );
 void ( * _ChromeAppModeStart_v7 )( );
-void ( * _OBJC_METACLASS_$_UnderlayOpenGLHostingWindow )( );
 
 void* ( * _cef_urlrequest_create )( cef_request_t* req, void* client, void* req_ctx );
 
@@ -459,9 +457,7 @@ static void init()
     _cef_time_delta = dlsym( handle, "cef_time_delta" );
     _cef_time_to_basetime = dlsym( handle, "cef_time_to_basetime" );
     _cef_time_from_basetime = dlsym( handle, "cef_time_from_basetime" );
-    _OBJC_CLASS_$_UnderlayOpenGLHostingWindow = dlsym( handle, "OBJC_CLASS_$_UnderlayOpenGLHostingWindow" );
     _ChromeAppModeStart_v7 = dlsym( handle, "ChromeAppModeStart_v7" );
-    _OBJC_METACLASS_$_UnderlayOpenGLHostingWindow = dlsym( handle, "OBJC_METACLASS_$_UnderlayOpenGLHostingWindow" );
 }
 
 #ifdef __amd64__
@@ -687,9 +683,7 @@ CREATE_HOOKED_FUN( cef_basetime_now )
 CREATE_HOOKED_FUN( cef_time_delta )
 CREATE_HOOKED_FUN( cef_time_to_basetime )
 CREATE_HOOKED_FUN( cef_time_from_basetime )
-CREATE_HOOKED_FUN( OBJC_CLASS_$_UnderlayOpenGLHostingWindow )
 CREATE_HOOKED_FUN( ChromeAppModeStart_v7 )
-CREATE_HOOKED_FUN( OBJC_METACLASS_$_UnderlayOpenGLHostingWindow )
 
 void* cef_urlrequest_create( cef_request_t* req, void* client, void* req_ctx )
 {
