@@ -1,5 +1,9 @@
 # HookSpot
 
+**Repository Archived: Dylib Injection Exploit Patched**
+This repository is archived as the CEF binary has been signed.
+Alternative: https://github.com/spicetify/spicetify-cli
+
 This is a simple Spotify CEF Patcher with low maintenance required. Currently, it only supports ARM64 Mach-O binaries and only blocks ADs.
 
 #### TODO:
